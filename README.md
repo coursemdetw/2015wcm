@@ -1,6 +1,7 @@
 #Introduction of 2015WCM
 
 問題: gitbook editor 好像目前無法使用
+在 Ubuntu中使 google-chrome-stable啟動的瀏覽器可以使用 Gitbook線上編輯.
 
 處理方法: 只能與 Github 倉儲設定同步後, 在 Github 倉儲中進行內容編輯
 
