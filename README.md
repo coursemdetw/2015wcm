@@ -4,7 +4,7 @@
 
 在 Ubuntu 中使用 google-chrome-stable 啟動的瀏覽器則可以啟用 Gitbook 線上編輯.
 
-處理方法: 只能與 Github 倉儲設定同步後, 在 Github 倉儲中進行內容編輯
+處理方法: 若此問題持續發生, 只能與 Github 倉儲設定同步後, 在 Github 倉儲中進行內容編輯.
 
 SUMMARY.md 格式
 
