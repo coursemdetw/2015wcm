@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [安裝 Wordpress](安裝wordpress.md)
-   * [OpenShift 平台上安裝 WP](openshift_ping_tai_shang_an_zhuang_wp.md)
+   * [OpenShift 平台上安裝 WP](OpenShift 平台上安裝 WP.md)
    * [Gitbook 上的 markdown 檔案](gitbook上的markdown檔案.md)
 * [Github Wiki 與 Gitbook](Github Wiki 與 Gitbook.md)
 * [Github Wiki 與 Leo Editor](Github Wiki 與 Leo Editor.md)
