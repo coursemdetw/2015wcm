@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
    * [Gitbook 簡介](Gitbook 簡介.md)
-* [安裝 Wordpress](安裝wordpress.md)
+* [安裝 Wordpress](_安裝wordpress.md)
    * [OpenShift 平台上安裝 WP](OpenShift 平台上安裝 WP.md)
    * [Gitbook 上的 markdown 檔案](gitbook上的markdown檔案.md)
 * [Github Wiki 與 Gitbook](Github Wiki 與 Gitbook.md)
