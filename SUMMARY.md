@@ -8,4 +8,5 @@
 * [Github Wiki 與 Gitbook](Github Wiki 與 Gitbook.md)
 * [Github Wiki 與 Leo Editor](Github Wiki 與 Leo Editor.md)
 * 內容發佈與時效性
+* Python 與 markdown
 
