@@ -15,21 +15,22 @@
 <v t="amd.20150311153738.44"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="amd.20150311153738.40"><vh>2015 網際內容管理</vh></v>
+<v t="amd.20150311153738.71" a="E"><vh>Leo Editor 專案</vh>
+<v t="amd.20150311153738.72"><vh>edit 節點指令不能使用子節點</vh></v>
+</v>
 <v t="amd.20150311153738.45" a="E"><vh>Gitbook 電子書</vh>
 <v t="amd.20150311153738.70"><vh>結合 disqus 留言功能</vh></v>
 <v t="amd.20150311153738.46" a="E"><vh>@path ./</vh>
 <v t="amd.20150311153738.47"><vh>@edit SUMMARY.md</vh></v>
-<v t="amd.20150311153738.48"><vh>@edit README.md</vh>
+<v t="amd.20150311153738.48"><vh>@edit README.md</vh></v>
 <v t="amd.20150311153738.49"><vh>@edit Gitbook 簡介.md</vh></v>
-</v>
-<v t="amd.20150311153738.50"><vh>@edit _安裝wordpress.md</vh>
-<v t="amd.20150311153738.51"><vh>@edit OpenShift 平台上安裝 WP.md</vh></v>
-<v t="amd.20150311153738.52"><vh>@edit gitbook上的markdown檔案.md</vh></v>
-</v>
 <v t="amd.20150311153738.53"><vh>@edit Github Wiki 與 Gitbook.md</vh></v>
 <v t="amd.20150311153738.54"><vh>@edit Github Wiki 與 Leo Editor.md</vh></v>
 <v t="amd.20150311153738.55"><vh>@edit _內容發佈與時效性.md</vh></v>
 <v t="amd.20150311153738.56"><vh>@edit Python 與 markdown.md</vh></v>
+<v t="amd.20150311153738.50"><vh>@edit _安裝wordpress.md</vh></v>
+<v t="amd.20150311153738.52"><vh>@edit gitbook上的markdown檔案.md</vh></v>
+<v t="amd.20150311153738.51"><vh>@edit OpenShift 平台上安裝 WP.md</vh></v>
 </v>
 </v>
 <v t="amd.20150311153738.57" a="E"><vh>OpenShift 網站程式</vh>
@@ -154,47 +155,6 @@ vertical: body pane on the botton</t>
 
 SUMMARY.md 為電子書目錄, README.md 則為內定的 Introduction 章節對應檔案.</t>
 <t tx="amd.20150311153738.46"></t>
-<t tx="amd.20150311153738.48">@language md
-#Introduction of 2015WCM
-
-本課程為 2015 年 Spring 國立虎尾科技大學-機械設計工程系的網際內容管理課程.
-
-使用工具:
-
-* Wordpress 網誌
-* CMSimply 內容管理系統
-* Github 版次管理系統
-* Gitbook 電子書系統
-* OpenShift 雲端平台
-* KMOL 可攜程式系統
-* Leo Editor 整合資料管理系統
-
-SUMMARY.md 格式
-
-    # Summary
-
-    * [Introduction](README.md)
-    
-在 Markdown 格式中, 若要保留代碼原有格式, 只要在各行前面以 4 個空白縮排即可.
-
-上述的 SUMMARY.md 格式內容的呈現就是範例.
-
-而多用戶直接在 Github 倉儲中執行電子書內容的協同編輯, 必須要克服資料內容所可能產生的衝突, 假如是在 Gitbook 網際編輯器中, 則可利用所見即所得的方式進行編輯, 但是若有多名用戶, 同時在 Gitbook 與 Github 倉儲中執行內容修改, 則仍可能衍生資料丟失.
-</t>
-<t tx="amd.20150311153738.50">@language md
-# 安裝 Wordpress
-
-Wordpress 採用 PHP 編寫, 因此安裝環境需要 PHP 解譯器.
-
-使用者可以透過下列方式安裝 Wordpress:
-
-* 在 https://zh-tw.wordpress.com/ 上安裝
-* 在 OpenShift 平台上安裝
-* 在任何支援 PHP 與 MySQL 的環境中安裝
- * 在 WAN 安裝
- * 在 LAN 安裝
-
-</t>
 <t tx="amd.20150311153738.57">第1階段直接將  2015cd 的 CherryPy 程式 outline 複製到此, 將要納入 CMSimply 與 PyGroup 等兩套內容管理系統</t>
 <t tx="amd.20150311153738.59"></t>
 <t tx="amd.20150311153738.70">{
@@ -205,5 +165,7 @@ Wordpress 採用 PHP 編寫, 因此安裝環境需要 PHP 解譯器.
         }
     }  
 }</t>
+<t tx="amd.20150311153738.71"></t>
+<t tx="amd.20150311153738.72"></t>
 </tnodes>
 </leo_file>
