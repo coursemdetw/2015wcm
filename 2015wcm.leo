@@ -15,12 +15,14 @@
 <v t="amd.20150311153738.44"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="amd.20150311153738.40"><vh>2015 網際內容管理</vh></v>
+<v t="amd.20150331230554.1"><vh>@button new to wp</vh></v>
+<v t="amd.20150331230609.1"><vh>@button edit to wp</vh></v>
 <v t="amd.20150311153738.71" a="E"><vh>Leo Editor 專案</vh>
 <v t="amd.20150311153738.72"><vh>edit 節點指令不能使用子節點</vh></v>
 </v>
 <v t="amd.20150311153738.45" a="E"><vh>Gitbook 電子書</vh>
 <v t="amd.20150311153738.70"><vh>結合 disqus 留言功能</vh></v>
-<v t="amd.20150311153738.46" a="E"><vh>@path ./</vh>
+<v t="amd.20150311153738.46"><vh>@path ./</vh>
 <v t="amd.20150311153738.47"><vh>@edit SUMMARY.md</vh></v>
 <v t="amd.20150311153738.48"><vh>@edit README.md</vh></v>
 <v t="amd.20150311153738.49"><vh>@edit Gitbook 簡介.md</vh></v>
@@ -33,11 +35,25 @@
 <v t="amd.20150311153738.51"><vh>@edit OpenShift 平台上安裝 WP.md</vh></v>
 </v>
 </v>
-<v t="amd.20150311153738.57" a="E"><vh>OpenShift 網站程式</vh>
+<v t="amd.20150311153738.57"><vh>OpenShift 網站程式</vh>
 <v t="amd.20150311153738.59" a="E"><vh>@path ./</vh>
 <v t="amd.20150311153738.60" a="E"
 expanded="amd.20150311153738.62,"><vh>@file wsgi.py</vh></v>
 <v t="amd.20150311153738.69"><vh>@edit setup.py</vh></v>
+</v>
+</v>
+<v t="amd.20150331230020.1" a="E"><vh>利用 Leo Editor 作為 Wordpress client</vh>
+<v t="amd.20150331231717.1"><vh>這裡還有一項取回網誌文章的功能還未實現</vh></v>
+<v t="amd.20150331231546.1"><vh>下方節點標題為網誌網址, 內容則為帳號與密碼所在路徑</vh></v>
+<v t="amd.20150331230020.3" a="E"><vh>demo-2015course.rhcloud.com</vh>
+<v t="amd.20150331230825.1"><vh>使用 @url</vh></v>
+<v t="amd.20150331230324.1"><vh>@url demo 網站</vh></v>
+<v t="amd.20150331230218.1"><vh>寫網誌的格式</vh></v>
+<v t="amd.20150331231100.1"><vh>如何送出網誌</vh></v>
+<v t="amd.20150331231122.1"><vh>如何編輯網誌</vh></v>
+<v t="amd.20150331230020.4" a="E"><vh>已經都第六週了</vh>
+<v t="amd.20150331231451.1"><vh>文章 id</vh></v>
+</v>
 </v>
 </v>
 </vnodes>
@@ -165,7 +181,210 @@ SUMMARY.md 為電子書目錄, README.md 則為內定的 Introduction 章節對�
         }
     }  
 }</t>
-<t tx="amd.20150311153738.71"></t>
+<t tx="amd.20150311153738.71">研究 Leo Editor 從以下四個 .leo 檔案入手:
+
+leo/scripts/scripts.leo
+
+leo/doc/LeoDocs.leo
+
+leo/doc/quickstart.leo
+
+leo/dist/leoDist.leo</t>
 <t tx="amd.20150311153738.72"></t>
+<t tx="amd.20150331230020.1">首節點標題為 Wordpress site 的 domain name, 程式會加上 https:// 頭與 /xmlrpc.php 尾
+
+首節點對應的 body 內容為儲存發佈訊息的帳號密碼檔案的存放路徑
+
+新增 post 結束後, 程式會在訊息發佈節點的下屬, 新增一個"文章 id" 內文存放該對應內容的 post_id, 當 post 對應節點內容更動後, 就是透過此一 id 執行資料更新
+
+將 new-to-wp 與 edit-to-wp 設為 buttons
+
+記得在 WP 新增一個 author 帳號, 以便與 Leo Editor 中的 buttons 程式配合, 不要使用 site administrator 帳號.
+
+為了配合網誌更新流程中, 使用者在瀏覽器中更新既有的網誌文章, 然後再透過 Leo Editor 對應專案進行改版, 此時使用者必須先從網誌取下特定文章的內容之後, 才能根據最新文章加以改版. 換言之, 這裡需要一個 update-from-wp 透過"文章 id" 取下文章的最新內容, 而非使用 Leo Editor 中的舊內容進行改版.</t>
+<t tx="amd.20150331230020.3">/home/amd/Desktop/demo-2015course.txt</t>
+<t tx="amd.20150331230020.4">category:Uncategorized
+tags:python, 測試
+這是第1週的摘要內容
+[python]
+for i in range(5):
+    可以 = 5
+    print (i,":",可以)
+[/python]
+這個程式的真正用途說明
+這筆資料從 Leo Editor 送出.
+再執行編輯
+</t>
+<t tx="amd.20150331230218.1">category:文章類別
+tags:標籤用逗點隔開
+第3行開始就是文章內容
+
+目前的 categories 有:
+
+</t>
+<t tx="amd.20150331230324.1">http://demo-2015course.rhcloud.com</t>
+<t tx="amd.20150331230554.1">@language python
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+    
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+ 
+# Close opend file
+fo.close()
+ 
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+ 
+status_draft = 0
+status_published = 1
+ 
+server = xmlrpc.client.ServerProxy(wp_url)
+ 
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+ 
+post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+# 利用最後的 child 節點來儲存 post_id
+to_save_post_id = p.insertAsLastChild()    
+to_save_post_id.b = post_id
+to_save_post_id.h = "文章 id"
+# 因為新增節點, commander 必須 redraw
+c.redraw() 
+
+g.es("post_id 為", post_id)
+g.es("已經送出資料!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''</t>
+<t tx="amd.20150331230609.1">@language python
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+    
+os.environ['TZ'] = 'Asia/Taipei'
+ 
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+ 
+# Close opend file
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+ 
+status_draft = 0
+status_published = 1
+ 
+server = xmlrpc.client.ServerProxy(wp_url)
+ 
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+# 設法取得原 post 的 id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
+
+if status:
+    g.es("資料已經更新!")
+else:
+    g.es("有問題, 資料沒有更新!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''</t>
+<t tx="amd.20150331230825.1">滑鼠點選 @url 所在節點, 接著
+按住 Ctrl+Alt 然後按滑鼠左鍵</t>
+<t tx="amd.20150331231100.1">滑鼠先選擇要送出的網誌節點, 然後再利用滑鼠按下上方的 new-to-wp 按鈕</t>
+<t tx="amd.20150331231122.1">滑鼠先選擇要送出的網誌節點, 然後再利用滑鼠按下上方的 edit-to-wp 按鈕</t>
+<t tx="amd.20150331231451.1">224</t>
+<t tx="amd.20150331231546.1">帳號
+密碼</t>
+<t tx="amd.20150331231717.1"></t>
 </tnodes>
 </leo_file>
