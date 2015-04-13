@@ -17,6 +17,9 @@
 <v t="amd.20150311153738.40"><vh>2015 網際內容管理</vh></v>
 <v t="amd.20150331230554.1"><vh>@button new to wp</vh></v>
 <v t="amd.20150331230609.1"><vh>@button edit to wp</vh></v>
+<v t="2015.20150413160156.1"><vh>@button get from wp</vh>
+<v t="2015.20150413160156.2"><vh>程式設計考量</vh></v>
+</v>
 <v t="amd.20150311153738.71" a="E"><vh>Leo Editor 專案</vh>
 <v t="amd.20150311153738.72"><vh>edit 節點指令不能使用子節點</vh></v>
 </v>
@@ -43,8 +46,8 @@ expanded="amd.20150311153738.62,"><vh>@file wsgi.py</vh></v>
 </v>
 </v>
 <v t="amd.20150331230020.1" a="E"><vh>利用 Leo Editor 作為 Wordpress client</vh>
-<v t="amd.20150331231717.1"><vh>這裡還有一項取回網誌文章的功能還未實現</vh></v>
 <v t="amd.20150331231546.1"><vh>下方節點標題為網誌網址, 內容則為帳號與密碼所在路徑</vh></v>
+<v t="2015.20150413160349.1"><vh>Windows 下的帳號密碼檔案</vh></v>
 <v t="amd.20150331230020.3" a="E"><vh>demo-2015course.rhcloud.com</vh>
 <v t="amd.20150331230825.1"><vh>使用 @url</vh></v>
 <v t="amd.20150331230324.1"><vh>@url demo 網站</vh></v>
@@ -58,6 +61,76 @@ expanded="amd.20150311153738.62,"><vh>@file wsgi.py</vh></v>
 </v>
 </vnodes>
 <tnodes>
+<t tx="2015.20150413160156.1">@language python
+#coding: utf-8
+import xmlrpc.client
+# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
+import html
+ 
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
+
+# 從最後的 child 節點來取 post_id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+# 取回與 post_id 對應的網誌文章內容
+blog_content = server.metaWeblog.getPost (post_id, wp_username, wp_password)
+title = blog_content["title"]
+# 這裡要利用 html.unescape 轉回特殊符號
+description = html.unescape(blog_content["description"])
+mt_text_more = html.unescape(blog_content["mt_text_more"])
+if mt_text_more != "":
+    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
+else:
+    post_content = description
+# 所取回的 categories 為 list
+categories = blog_content["categories"]
+# 索取回的 tags 為以逗點隔開的字串
+mt_keywords = blog_content["mt_keywords"]
+p.h = title
+categories_str = ""
+for category in categories:
+    # 假如不是最後一個
+    if category != categories[len(categories)-1]:
+        categories_str += category + ", "
+    else:
+        # 這是最後一個
+        categories_str += category
+p.b = "categories:"+categories_str+"\ntags:"+mt_keywords+"\n"+post_content
+# 因為節點資料更新, commander 必須 redraw
+c.redraw() 
+g.es("資料已經取回")
+
+
+</t>
+<t tx="2015.20150413160156.2">俱備取回資料的權限
+
+透過子節點的文章 id 與網誌網址, 以 xmlrpc 協定進行連線
+
+取回 categories, tags, 文章標題與文章內容, 還有作者帳號?
+
+分別按照格式, 將取回的資料放入對應節點
+
+</t>
+<t tx="2015.20150413160349.1">必須修改 /home/amd/Desktop/demo-2015course.txt
+
+為 Windows 放置能夠修改 Wordpress 網誌內容的帳號與密碼對應檔案</t>
 <t tx="amd.20150311153738.40">2015 Spring 網際內容管理課程 Leo 專案
 
 Github 倉儲: https://github.com/coursemdetw/2015wcm
@@ -385,6 +458,5 @@ metaWeblog.getPost (postid, username, password) returns struct(blog content)
 <t tx="amd.20150331231451.1">224</t>
 <t tx="amd.20150331231546.1">帳號
 密碼</t>
-<t tx="amd.20150331231717.1"></t>
 </tnodes>
 </leo_file>
