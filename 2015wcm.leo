@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by Leo: http://leoeditor.com/leo_toc.html -->
-<?xml-stylesheet ekr_test?>
+<?xml-stylesheet ekr_test ?>
 <leo_file xmlns:leo="http://leoeditor.com/namespaces/leo-python-editor/1.1" >
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5" body_secondary_ratio="0.5">
@@ -25,8 +25,10 @@
 </v>
 <v t="amd.20150311153738.45" a="E"><vh>Gitbook 電子書</vh>
 <v t="amd.20150311153738.70"><vh>結合 disqus 留言功能</vh></v>
-<v t="amd.20150311153738.46"><vh>@path ./</vh>
+<v t="amd.20150311153738.46" a="E"><vh>@path ./</vh>
 <v t="amd.20150311153738.47"><vh>@edit SUMMARY.md</vh></v>
+<v t="2015.20150513093949.1"><vh>@edit 2015wcm_g8_w11.md</vh></v>
+<v t="2015.20150513093816.1"><vh>@edit g8_w11.md</vh></v>
 <v t="amd.20150311153738.48"><vh>@edit README.md</vh></v>
 <v t="amd.20150311153738.49"><vh>@edit Gitbook 簡介.md</vh></v>
 <v t="amd.20150311153738.53"><vh>@edit Github Wiki 與 Gitbook.md</vh></v>
