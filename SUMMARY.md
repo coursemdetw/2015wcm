@@ -1,4 +1,4 @@
-﻿# Summary
+# Summary
 
 * [Introduction](README.md)
    * [Gitbook 簡介](Gitbook 簡介.md)
@@ -9,6 +9,7 @@
 * [Github Wiki 與 Leo Editor](Github Wiki 與 Leo Editor.md)
 * [內容發佈與時效性](_內容發佈與時效性.md)
 * [Python 與 markdown](Python 與 markdown.md)
-* [2015wcm_g8](2015wcm_g8.md)
-    * [w11 筆記](2015wcm_g8_w11.md)
+* [2015wcm期末報告電子書](2015wcm.md)
+   * [2015wcm_g8](2015wcm_g8.md)
+        * [w11 筆記](2015wcm_g8_w11.md)
 

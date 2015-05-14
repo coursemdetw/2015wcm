@@ -27,6 +27,7 @@
 <v t="amd.20150311153738.70"><vh>結合 disqus 留言功能</vh></v>
 <v t="amd.20150311153738.46" a="E"><vh>@path ./</vh>
 <v t="amd.20150311153738.47"><vh>@edit SUMMARY.md</vh></v>
+<v t="2015.20150514233407.1"><vh>@edit 2015wcm.md</vh></v>
 <v t="2015.20150513093949.1"><vh>@edit 2015wcm_g8_w11.md</vh></v>
 <v t="2015.20150513093816.1"><vh>@edit g8_w11.md</vh></v>
 <v t="amd.20150311153738.48"><vh>@edit README.md</vh></v>
