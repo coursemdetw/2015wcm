@@ -33,6 +33,7 @@
 <v t="2015.20150513093816.1"><vh>@edit 2015wcm_g8.md</vh></v>
 <v t="2015.20150602215921.1"><vh>@edit 2015wcm_g8_w13.md</vh></v>
 <v t="2015.20150517110624.1"><vh>@edit 2015wcm_g8_w12.md</vh></v>
+<v t="2015.20150610233515.1"><vh>@edit 2015wcm_g8_w14.md</vh></v>
 <v t="amd.20150311153738.48"><vh>@edit README.md</vh></v>
 <v t="amd.20150311153738.49"><vh>@edit Gitbook 簡介.md</vh></v>
 <v t="amd.20150311153738.53"><vh>@edit Github Wiki 與 Gitbook.md</vh></v>
