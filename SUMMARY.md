@@ -17,6 +17,8 @@
      * [w14 筆記](2015wcm_g8_w14.md)
      * [w15 筆記](2015wcm_g8_w15.md)
      
-*[2015wcm_g7](2015wcm_g9.md)
-    *[wcm_g7_w12]
-
+*[2015wcm_g9](2015wcm_g9.md)
+    *[wcm_g9_w11](2015wcm_g9_w11.md)
+    *[wcm_g9_w12](2015wcm_g9_w12.md)
+    *[wcm_g9_w13](2015wcm_g9_w13.md)
+    
